@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TarotNova Systems</title>
+ 
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+ 
+body {
+
+  margin: 0;
+
+  font-family: 'Orbitron', sans-serif;
+
+  background: radial-gradient(circle at center, #0a0a2a, #000);
+
+  color: #fff;
+
+  overflow-x: hidden;
+
+}
+ 
+.navbar {
+
+  position: fixed;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 60px;
+
+  background: rgba(0,0,0,0.9);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 30px;
+
+  z-index: 1000;
+
+  border-bottom: 2px solid #ff66cc;
+
+}
+ 
+.navbar h2 {
+
+  color: #ff66cc;
+
+  margin: 0;
+
+}
+ 
+.nav-links a {
+
+  color: white;
+
+  margin-left: 20px;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+
+}
+ 
+.nav-links a:hover {
+
+  color: #ff66cc;
+
+}
+ 
+.container {
+
+  height: 100vh;
+
+  overflow-y: scroll;
+
+  scroll-snap-type: y mandatory;
+
+}
+ 
+section {
+
+  height: 100vh;
+
+  scroll-snap-align: start;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  text-align: center;
+
+  padding: 80px 20px 20px; 
+
+}
+ 
+.horizontal {
+
+  display: flex;
+
+  overflow-x: auto;
+
+  width: 100%;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  scroll-snap-type: x mandatory;
+
+}
+ 
+.card {
+
+  min-width: 80%;
+
+  height: 60vh;
+
+  background: #0a0a2a;
+
+  border: 2px solid #ff66cc;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  scroll-snap-align: center;
+
+  padding: 20px;
+
+}
+ 
+.img-box {
+
+  width: 300px;
+
+  height: 200px;
+
+  background: #111;
+
+  border: 2px dashed #ff66cc;
+
+  margin: 10px;
+
+}
+ 
+.img-box img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+ 
+h1 {
+
+  font-size: 4rem;
+
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff66cc);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+ 
+h2 {
+
+  font-size: 2.5rem;
+
+  color: #ff66cc;
+
+}
+ 
+p {
+
+  max-width: 700px;
+
+  font-size: 1.2rem;
+
+}
+ 
+.logo {
+
+  width: 280px;
+
+  display: block;
+
+  margin-bottom: 20px;
+
+  filter: drop-shadow(0 0 20px #ff00ff) drop-shadow(0 0 40px #00ffff);
+
+  animation: float 4s ease-in-out infinite;
+
+}
+ 
+@keyframes float {
+
+  0% { transform: translateY(0px); }
+
+  50% { transform: translateY(-15px); }
+
+  100% { transform: translateY(0px); }
+
+}
+ 
+ 
+.btn {
+
+  margin-top: 20px;
+
+  padding: 12px 24px;
+
+  border: 2px solid #ff66cc;
+
+  background: transparent;
+
+  color: #fff;
+
+  cursor: pointer;
+
+}
+ 
+.btn:hover {
+
+  background: #ff66cc;
+
+  color: #000;
+
+}
+ 
+.modal {
+
+  display: none;
+
+  position: fixed;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0,0,0,0.8);
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+ 
+.modal-content {
+
+  background: #0a0a2a;
+
+  padding: 30px;
+
+  border: 2px solid #ff66cc;
+
+  max-width: 600px;
+
+}
+ 
+.close {
+
+  margin-top: 20px;
+
+  cursor: pointer;
+
+  color: #ff66cc;
+
+}
+</style>
+</head>
+ 
+<body>
+ 
+<nav class="navbar">
+<h2>TarotNova</h2>
+<div class="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#problema">Problema</a>
+<a href="#solucion">Solución</a>
+<a href="#sistema">Sistema</a>
+</div>
+</nav>
+ 
+<div id="explorarModal" class="modal">
+<div class="modal-content">
+<h2>¿Que es TarotNova?</h2>
+<p>
+
+      TarotNova Systems es un sistema informático de orientación académica especializada que utiliza el Tarot como base conceptual para analizar rasgos de una persona, como la personalidad, los gustos y los estilos de trabajo.
+</p>
+<div class="close" onclick="cerrarModal()">Cerrar</div>
+</div>
+</div>
+ 
+<div class="container">
+ 
+<section id="inicio">
+<img src="logo.png" class="logo">
+<h1>TarotNova Systems</h1>
+<p>La tecnologia puede guiarnos, pero el verdadero poder esta en conocernos a nosotros mismos.</p>
+<button class="btn" onclick="abrirModal()">Explorar</button>
+</section>
+ 
+<section id="problema">
+<h2>PROBLEMÁTICA</h2>
+<p>
+
+    En la actualidad, muchos estudiantes se enfrentan a dificultades al momento de elegir una carrera, ya que no cuentan con la suficiente orientación vocacional ni las herramientas necesarias actuales que les permiten identificar sus habilidades e intereses personales y profesionales, lo que provoca la mala toma decisiones sobre su futuro, ya que también permite identificar rasgos positivos para desenvolverse en entornos sociales.
+</p>
+</section>
+ 
+<section id="solucion">
+<h2>SOLUCIÓN</h2>
+<p>
+
+    Se propone al tarot como una innovadora herramienta de apoyo y solución a la orientación académica, ya que permite analizar la información personal, utilizando la tecnología para procesar los datos y generar resultados claros que faciliten la toma de decisiones.
+</p>
+</section>
+ 
+<section id="sistema">
+<h2>SISTEMA</h2>
+ 
+  <div class="horizontal">
+ 
+    <div class="card">
+<h2>Base de Datos</h2>
+<p>Organiza la información en tablas relacionadas para evitar duplicación y mejorar consultas.</p>
+</div>
+ 
+    <div class="card">
+<h2>Funcionamiento</h2>
+<p>El usuario ingresa al sisitema y responde una serie de preguntas, las cuales se guardan en una base de datos para usarlas como una base de apoyo para la generacion de una respuesta final eligiendo una posible carrera de tu interes segun tus habilidades, personalidad y comportamiento. </p>
+</div>
+ 
+    <div class="card">
+<h2>Integracion de la IA</h2>
+<p>Se integra la IA como apoyo a las respuestas que los usuarios. Con base en esa información, el sistema identifica los intereses, las habilidades y preferencias personalizadas para generar sugerencias con base en los datos que coincidan con posibles carreras y áreas profesionales.</p>
+</div>
+ 
+  </div>
+ 
+</section>
+ 
+</div>
+ 
+<script>
+
+function abrirModal() {
+
+  document.getElementById("explorarModal").style.display = "flex";
+
+}
+ 
+function cerrarModal() {
+
+  document.getElementById("explorarModal").style.display = "none";
+
+}
+</script>
+ 
+</body>
+</html>
+ 
